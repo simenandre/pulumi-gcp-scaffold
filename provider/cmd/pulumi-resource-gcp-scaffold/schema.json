@@ -1,0 +1,89 @@
+{
+  "name": "gcp-scaffold",
+  "resources": {
+    "gcp-scaffold:index:project": {
+      "isComponent": true,
+      "inputProperties": {
+        "projectID": {
+          "type": "string",
+          "description": "The project ID."
+        },
+        "projectName": {
+          "type": "string",
+          "description": "The display name of the project. ProjectID will be used as the display name if empty"
+        },
+        "orgID": {
+          "type": "string",
+          "description": "The numeric ID of the organization this project belongs to. Conflicts with `projectID`."
+        },
+        "folderID": {
+          "type": "string",
+          "description": "The numeric ID of the folder this project should be created under. Conflicts with `orgID`."
+        },
+        "billingAccountID": {
+          "type": "string",
+          "description": "The ID of the billing account this project belongs to. If not specified, then you may not specify APIs to activate for the project."
+        },
+        "activatedApis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of APIs to be managed as part of the project"
+        }
+      },
+      "requiredInputs": [
+        "projectID"
+      ],
+      "plainInputs": [
+        "projectID",
+        "projectName",
+        "billingAccountID",
+        "activatedApis",
+        "orgID"
+      ],
+      "properties": {
+        "projectID": {
+          "type": "string",
+          "description": "The ID of the project."
+        },
+        "projectName": {
+          "type": "string",
+          "description": "The display name of the project."
+        }
+      },
+      "required": [
+        "projectID",
+        "projectName"
+      ]
+    }
+  },
+  "language": {
+    "csharp": {
+      "packageReferences": {
+        "Pulumi": "3.*",
+        "Pulumi.Gcp": "5.*"
+      }
+    },
+    "go": {
+      "generateResourceContainerTypes": true,
+      "importBasePath": "github.com/cobraz/pulumi-gcp-scaffold/sdk/go/gcp"
+    },
+    "nodejs": {
+      "dependencies": {
+        "@pulumi/gcp": "^5.0.0"
+      },
+      "devDependencies": {
+        "typescript": "^3.7.0"
+      },
+      "packageName": "@cobraz/pulumi-gcp-scaffold"
+    },
+    "python": {
+      "packageName": "cobraz_pulumi_gcp_scaffold",
+      "requires": {
+        "pulumi": ">=3.0.0,<4.0.0",
+        "pulumi-gcp": ">=5.0.0,<6.0.0"
+      }
+    }
+  }
+}
