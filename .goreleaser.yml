@@ -1,0 +1,29 @@
+archives:
+  - id: archive
+    name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
+artifactories:
+  - name: cobraz
+    mode: archive
+    target: "https://cobraz.jfrog.io/artifactory/pulumi-packages/{{ .ProjectName }}/"
+    username: goreleaser
+builds:
+  - binary: pulumi-resource-gcp-scaffold
+    dir: provider
+    env:
+      - CGO_ENABLED=0
+    goarch:
+      - amd64
+    goos:
+      - darwin
+      - windows
+      - linux
+    ldflags:
+      - -X github.com/cobraz/pulumi-gcp-scaffold/provider/pkg/version.Version={{.Tag }}
+    main: ./cmd/pulumi-resource-gcp-scaffold/
+changelog:
+  skip: true
+release:
+  disable: false
+  prerelease: auto
+snapshot:
+  name_template: '{{ .Tag }}-SNAPSHOT'
