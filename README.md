@@ -28,7 +28,7 @@ task install
 Before you begin, you'll need to install the latest version of the Pulumi Plugin using `pulumi plugin install`:
 
 ```
-pulumi plugin install resource gcp-scaffold v0.2.0 --server https://cobraz.jfrog.io/artifactory/pulumi-packages/pulumi-gcp-scaffold
+pulumi plugin install resource gcp-scaffold v0.3.0 --server https://cobraz.jfrog.io/artifactory/pulumi-packages/pulumi-gcp-scaffold
 ```
 
 This installs the plugin into `~/.pulumi/plugins`.
