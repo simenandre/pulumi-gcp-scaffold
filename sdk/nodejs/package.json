@@ -1,6 +1,9 @@
 {
     "name": "@cobraz/pulumi-gcp-scaffold",
     "version": "${VERSION}",
+    "publishConfig": {
+      "access": "public"
+    },
     "scripts": {
         "build": "tsc"
     },
