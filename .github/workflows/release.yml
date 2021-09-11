@@ -73,8 +73,8 @@ jobs:
         uses: Arduino/actions/setup-taskfile@master
       - name: Build SDK
         run: task build:${{ matrix.language }}
-      - name: Check worktree clean
-        run: ./ci-scripts/ci/check-worktree-is-clean
+      #- name: Check worktree clean
+      #  run: ./ci-scripts/ci/check-worktree-is-clean
       - name: Compress SDK folder
         run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
       - name: Upload artifacts
